@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="group">
+            <label for="dest-path">Destination:</label>
+            <input type="text" id="dest-path" name="dest-path">
+            <button onclick="Choose()">Choose</button>
+        </div>
+    </div>
+    <script>
+        const destPath = document.getElementById("dest-path");
+
+        window.electronAPI.receiveFromMain("dest-path-update", (data) => {
+            destPath.value = data;
+        });
+
+        function Choose() {
+            window.electronAPI.invokeMain("showDialog").then(destination => {
+                destPath.value = destination;
+            });
+        }
+    </script>
+</body>
+</html>

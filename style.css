@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #123;
+  border-radius: 20px;
+  width: 80%;
+  flex-grow: 1;
+}
+
+#display {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.record-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#record {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+#record:focus {
+  outline: none;
+}
+
+#record::after {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  transform: translate(-50%, -50%);
+}
+
+#recording::after {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 5px !important;
+}
+
+.hide {
+  opacity: 0 !important;
+}
+
+#mic-icon {
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  width: 30px;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+.group > input, .group > select {
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+}
